@@ -11,7 +11,7 @@ public class Main {
     System.out.println("==프로그램 시작==");
 
     while (true) {
-      System.out.println("명령) ");
+      System.out.printf("명령) ");
       String cmd = sc.nextLine();
 
       if (cmd.equals("exit")){
