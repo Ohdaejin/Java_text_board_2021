@@ -9,6 +9,8 @@ public class Main {
     System.out.println("== 게시판 v 0.1 ==");
     System.out.println("== 프로그램 시작 ==");
 
+    int articlesLastId = 0;
+
     while (true) {
       System.out.printf("명령) ");
       String cmd = sc.nextLine();
@@ -21,8 +23,16 @@ public class Main {
         String title = sc.nextLine();
         System.out.printf("내용 : ");
         String body = sc.nextLine();
-        int id = 1;
-        System.out.printf("%d번 게시물이 입력되었습니다.\n", id);
+        int id = articlesLastId + 1;
+        articlesLastId = id;
+
+        Article article = new Article();
+        article.id = id;
+        article.title = title;
+        article.body = body;
+        System.out.println("생성된 게시물 객체 : " + article);
+
+        System.out.printf("%d번 게시물이 입력되었습니다.\n", article.id);
       } else {
         System.out.printf("입력된 명령어 : %s\n", cmd);
       }
@@ -32,4 +42,10 @@ public class Main {
 
     sc.close();
   }
+}
+
+class Article {
+  int id;
+  String title;
+  String body;
 }
